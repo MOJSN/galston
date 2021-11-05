@@ -33,8 +33,15 @@ function setup() {
     gravity_direction = 0.0;
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
+
+    slider =document.getElementById("angle");
+    angle_text =document.getElementById("angle_text");
+
     if (urlParams.has('angle')) {
-        gravity_direction = float(urlParams.get('angle')) * Math.PI / 180;
+        let angle = urlParams.get('angle');
+        gravity_direction = float(angle) * Math.PI / 180;
+        slider.value = angle;
+        angle_text.innerHTML = ''+slider.value;
     }
     world.gravity.x = Math.sin(gravity_direction);
     world.gravity.y = Math.cos(gravity_direction);
@@ -79,6 +86,14 @@ function setup() {
         }
         redraw();
     });
+
+    slider.addEventListener('input', function() {
+        gravity_direction = float(slider.value) * Math.PI / 180;
+        world.gravity.x = Math.sin(gravity_direction);
+        world.gravity.y = Math.cos(gravity_direction);
+        redraw();
+        angle_text.innerHTML = ''+slider.value;
+    });
 }
 
 function newParticle() {
@@ -91,10 +106,12 @@ function draw() {
     rectMode(CENTER);
     translate(width / 2, height / 2);
     rotate(gravity_direction);
-    if (frameCount % 10 == 0) {
-        newParticle();
+    if (isLooping()) {
+        if (frameCount % 10 == 0) {
+            newParticle();
+        }
+        Engine.update(engine, 1000 / 30);
     }
-    Engine.update(engine, 1000 / 30);
     for (var i = 0; i < particles.length; i++) {
         particles[i].show();
         if (particles[i].isOffScreen()) {

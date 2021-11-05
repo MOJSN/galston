@@ -11,17 +11,15 @@ The main differences are:
 * altered the colours of the particles to represent which bucket they fall in - blue to red - to represent the idea of hotter/colder outcomes
 * added stop/go buttons for the looping so that all the CPU isn't consumed
 * added clear button to remove existing balls
+* added a slider to tip the box
 
 This is not the finest example of my programming skills! It is a fast modification of code developed in a training video - but, hey! It works!
 
 You can see it working on the GitHub pages here https://mojsn.github.io/galston/
 
-Note:
-* to change the angle add an 'angle' parameter to the URL (in degrees), e.g. https://mojsn.github.io/galston/index.html?angle=10
-* to change the angle or restart you have to refresh the page
+You can start the simultation at a given angle using the parameter: https://mojsn.github.io/galston/?angle=7
 
-Improvements that could be made:
-* a slider to rotate the box in real-time
+
 
 
 
