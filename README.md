@@ -10,6 +10,7 @@ The main differences are:
 * modified the look and feel 
 * altered the colours of the particles to represent which bucket they fall in - blue to red - to represent the idea of hotter/colder outcomes
 * added stop/go buttons for the looping so that all the CPU isn't consumed
+* added clear button to remove existing balls
 
 This is not the finest example of my programming skills! It is a fast modification of code developed in a training video - but, hey! It works!
 
@@ -20,7 +21,6 @@ Note:
 * to change the angle or restart you have to refresh the page
 
 Improvements that could be made:
-* a clear/refresh button to restart the balls
 * a slider to rotate the box in real-time
 
 

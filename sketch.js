@@ -70,6 +70,15 @@ function setup() {
     document.getElementById('stop-button').addEventListener('click', noLoop);
 
     document.getElementById('go-button').addEventListener('click', loop);
+
+    document.getElementById('clear-button').addEventListener('click', function() {
+        for (var i = 0; i < particles.length; i++) {
+            World.remove(world, particles[i].body);
+            particles.splice(i, 1);
+            i--;
+        }
+        redraw();
+    });
 }
 
 function newParticle() {
